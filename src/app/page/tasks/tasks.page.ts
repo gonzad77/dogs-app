@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertController, LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 
 import { DefaultTask, Task } from 'src/app/models/task/task';
 
@@ -24,7 +24,6 @@ export class TasksPage implements OnInit {
     private formBuilder: FormBuilder,
     private navCtrl: NavController,
     private loadingCtrl: LoadingController,
-    private alertCtrl: AlertController,
     private db: DBService
   ) {
     this.tasksLocalService = new TasksLocalService(this.db.dbDog);

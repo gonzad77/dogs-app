@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoadingController, NavController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 import { DefaultLogin, Login } from 'src/app/models/login/task';
 

@@ -48,16 +48,7 @@ export class GalleryPage implements OnInit {
       }
     })
     .catch(async () => {
-      const alert = await this.alertCtrl.create({
-        header: 'Unexpected error',
-        message: 'Try again later...',
-        buttons: [{
-          text: 'Ok',
-          role: 'cancel',
-          handler: () => this.navCtrl.pop()
-        }]
-      });
-      await alert.present();
+      this.showAlertError();
     });
   }
 
@@ -72,19 +63,23 @@ export class GalleryPage implements OnInit {
         this.ionSlides.slideTo(2);
       }
       this.loader.dismiss();
-    }).catch(async () => {
-      const alert = await this.alertCtrl.create({
-        header: 'Unexpected error',
-        message: 'Try again later...',
-        buttons: [{
-          text: 'Ok',
-          role: 'cancel',
-          handler: () => this.navCtrl.pop()
-        }]
-      });
-      await alert.present();
+    }).catch(() => {
+      this.showAlertError();
       this.loader.dismiss();
     });
+  }
+
+  async showAlertError() {
+    const alert = await this.alertCtrl.create({
+      header: 'Unexpected error',
+      message: 'Try again later...',
+      buttons: [{
+        text: 'Ok',
+        role: 'cancel',
+        handler: () => this.navCtrl.pop()
+      }]
+    });
+    await alert.present();
   }
 
   ionViewWillLeave() {
