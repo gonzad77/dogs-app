@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tasks</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" tappable (click)="openPage('/tasks-questions')">
+        <ion-icon name="help"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <form [formGroup]="form">
+    <ion-grid>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="ion-no-padding">
+            <ion-label position="floating" color="primary">Description</ion-label>
+            <ion-input type="text" formControlName="Description"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" *ngIf="form.get('Description').errors && (form.get('Description').dirty || form.get('Description').touched)">
+          <p class="error" *ngIf="form.get('Description').errors.required">You must write a description</p>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-item class="ion-no-padding">
+            <ion-label position="floating" color="primary">Date</ion-label>
+            <ion-input type="text" formControlName="Date"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" *ngIf="form.get('Date').errors && (form.get('Date').dirty || form.get('Date').touched)">
+          <p class="error" *ngIf="form.get('Date').errors.required">You must write a Date</p>
+          <p class="error" *ngIf="form.get('Date').errors.validateDate">Invalid format, it must be MM/DD/YYYY</p>
+        </ion-col>
+        <ion-col size="12">
+          <ion-button [disabled]="!form.valid" expand="block" fill="outline" shape="round" (click)="addTask(form.value)">
+            ADD
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+  <ion-list class="tasksList">
+    <ion-list-header>
+      <ion-label><h2>Tasks:</h2></ion-label>
+      <h2 class="ion-padding-top" *ngIf="tasks.length == 0">There aren't tasks yet</h2>
+    </ion-list-header>
+    <ion-item *ngFor="let task of tasks" lines="inset" [ngClass]="'task-' + task.IDTask">
+      <ion-label>
+        <h3>{{task.Description}}</h3>
+        <p>{{task.Date}}</p>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="deleteTask(task)">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

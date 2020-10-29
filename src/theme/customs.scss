@@ -1,0 +1,100 @@
+/* Override styles of Ionic */
+ion-back-button {
+    --background: transparent;
+    --background-focused: transparent;
+    --background-hover: transparent;
+    --color: var(--ion-color-light);
+    --color-focused: var(--ion-color-light);
+    --color-hover: var(--ion-color-light);
+    --border-radius: 10px;
+
+    width: 38px;
+    height: 38px;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+}
+
+ion-back-button.ios {
+    --padding-start: 8px !important;
+    --padding-end: 16px !important;
+}
+
+ion-content{
+    --background: var(--ion-color-light);
+}
+
+ion-footer {
+    background: var(--ion-color-light);
+}
+
+ion-header {
+    height: 60px;
+    ion-buttons {
+        margin-left: 0 !important;
+    }
+    ion-toolbar {
+        height: 60px;
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --min-height: 60px;
+        --border-width: 0px;
+        --background: var(--ion-color-primary);
+        color: var(--ion-color-light);
+        ion-title {
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            top: 0;
+        }
+    }
+}
+
+ion-button {
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+
+    &.md {
+        text-transform: none;
+    }
+}
+
+.error {
+    color: var(--ion-color-danger);
+    font-size: small;
+}
+
+/**
+* Toast
+*/
+.toast-container {
+    user-select: none;
+    
+    &.error { background: var(--ion-color-danger); }
+
+    width: 90%;
+    top: 10px;
+    padding: 18px 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    z-index: 500;
+
+    .toast-text {
+        color: #FFFFFF;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}
+
+.d-none {
+    display: none !important;
+}

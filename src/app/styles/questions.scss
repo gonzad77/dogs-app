@@ -1,0 +1,108 @@
+ion-header {
+    ion-toolbar {
+        --background: var(--ion-color-light);
+        color: #000000;
+
+        ion-back-button,
+        ion-buttons > ion-button {
+            --color: #000000 !important;
+            --color-activated: #000000 !important;
+            --color-focused: #000000 !important;
+        }
+    }
+}
+
+ion-content {
+    --padding-start: 10px;
+    --padding-end: 10px;
+
+    h1 {
+        font-weight: 600;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    ion-col.question {
+        padding-bottom: 20px;
+        padding-top: 20px;
+        border-bottom: 1px solid #ECECEC;
+        font-weight: 600;
+
+        h2 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0px;
+            display: flex;
+            align-items: center;
+            padding-right: 25px;
+            color: #062837;
+
+            ion-icon {
+                position: absolute;
+                right: 10px;
+
+                &.ios {
+                    top: 21px;
+                }
+            }
+        }
+
+        &:last-child {
+            border-bottom: none !important;
+        }
+
+        .task-question-answer {
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height .3s ease-in-out;
+            padding-right: 20px;
+            font-weight: normal;
+            font-size: 16px;
+            color: #062837;
+        }
+    }
+}
+
+.active {
+    max-height: 100vh !important;
+}
+
+.title {
+    margin: 0px !important;
+    float: left;
+
+    &.title-header {
+        animation-name: inHeader;
+        animation-duration: .3s;
+    }
+
+    &.title-content {
+        animation-name: inContent;
+        font-weight: bold;
+        animation-duration: .3s;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+}
+
+@keyframes inHeader {
+    0% {
+      transform: translate(-20%, 70%);
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+}
+
+@keyframes inContent {
+    0% {
+      transform: translate(20%, -70%);
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+}

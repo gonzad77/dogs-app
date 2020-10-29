@@ -1,0 +1,106 @@
+ion-content {
+    --offset-top: 0px;
+    --offset-bottom: 0px;
+    position: absolute;
+    --background: var(--ion-color-primary);
+    --color: #FFFFFF;
+
+    &.ios {
+        --padding-top: 44px;
+    }
+
+    &.md {
+        --padding-top: 56px;
+    }
+
+    .textLogin {
+        font-size: 18px;
+        color: #FFFFFF !important;
+    }
+
+    div.inputs {
+        width: 100%;
+        float: left;
+
+        .loginInput {
+            position: relative;
+            background-color: #F5F5F5;
+            border-radius: 25px;
+            float: left;
+            width: 100%;
+    
+            ion-icon {
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 1.2rem;
+                z-index: 3;
+            }
+    
+            ion-input {
+                margin: 13px 50px;
+                padding: 0;
+                width: calc(100% - (50px * 2));
+                --placeholder-color: #848484;
+                --color: #000;
+                --padding-top: 0px;
+                --padding-bottom: 0px;
+                --padding-start: 0px;
+            }
+    
+            &.withEye {
+                ion-button {
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                    --padding-start: 13px;
+                    --padding-end: 13px;
+                    --padding-top: 13px;
+                    --padding-bottom: 13px;
+
+                    --border-radius: 25px !important;
+                    margin: 0px !important;
+    
+                    ion-icon:last-child {
+                        left: unset;
+                        position: relative;
+                        transform: unset;
+                        top: unset;
+                    }
+                }
+            }
+        }
+    }
+
+    .forgotPass {
+        width: 100%;
+        float: left;
+
+        ion-button {
+            font-size: 14px;
+            float: right;
+            --padding-start: 10px;
+            --padding-end: 10px;
+            --padding-top: 15px;
+            --padding-bottom: 15px;
+        }
+    }
+
+    .btnSubmit {
+        font-size: 16px;
+
+        float: left;
+        width: 100%;
+    }
+
+    .btnRegister{
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}

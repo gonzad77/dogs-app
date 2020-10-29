@@ -1,0 +1,36 @@
+<ion-header [ngClass]="{ 'ion-no-border': !showTitleHeader }">
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="showTitleHeader" class="title title-header">Tasks questions</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [scrollEvents]="true"
+  (ionScroll)="scrolling($event)"
+  class="ion-padding-horizontal"
+>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" *ngIf="!showTitleHeader" class="title title-content">
+        <h1>Tasks<br>questions</h1>
+      </ion-col>
+
+      <ion-col
+        size="12"
+        *ngFor="let tasksQuestion of tasksQuestions"
+        tappable (click)="seeModule(tasksQuestion)"
+        class="question"
+      >
+        <h2 class="ion-no-margin">
+          {{ tasksQuestion.Description }}
+          <ion-icon name="chevron-forward"></ion-icon>
+        </h2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

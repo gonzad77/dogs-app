@@ -1,0 +1,63 @@
+<div class="toast-container error" [ngClass]="toast.class" tappable (click)="toast.hide()">
+  <div class="toast-text ion-text-center">
+    {{ toast.text }}
+  </div>
+</div>
+<ion-content class="ion-padding-horizontal">
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12" class="ion-margin-bottom ion-text-center">
+        LOGO
+      </ion-col>
+
+      <ion-col size="12" class="ion-text-center ion-margin-bottom textLogin">
+        Enter your details
+      </ion-col>
+
+      <ion-col size="12" class="ion-margin-top">
+        <form [formGroup]="form" (ngSubmit)="setLogin(form.value)">
+          <div class="inputs">
+            <div class="loginInput ion-margin-bottom">
+              <ion-icon name="person" color="primary"></ion-icon>
+      
+              <ion-input
+                (ionBlur)="inputOut()"
+                (ionFocus)="inputIn()"
+                [type]="email"
+                formControlName="Email"
+                placeholder="Email"
+                class="ion-text-center">
+              </ion-input>
+            </div>
+      
+            <div class="loginInput withEye">
+              <ion-icon name="lock-closed" color="primary"></ion-icon>
+      
+              <ion-input
+                (ionBlur)="inputOut()"
+                (ionFocus)="inputIn()"
+                [type]="passwordType"
+                formControlName="Password"
+                placeholder="Password"
+                class="ion-text-center">
+              </ion-input>
+      
+              <ion-button fill="clear" tappable (click)="showPassword()" type="button">
+                <ion-icon [name]="passwordType === 'password' ? 'eye' : 'eye-off'"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+      
+          <div class="forgotPass">
+            <ion-button fill="clear" color="light" tappable type="button">Forgot your password?</ion-button>
+          </div>
+      
+          <ion-button expand="block" shape="round" type="submit" tappable [disabled]="!form.valid" color="light" class="btnSubmit ion-margin-top">Log in</ion-button>    
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button *ngIf="!inInput" fill="clear" tappable class="btnRegister" color="light">Don't have an account yet?</ion-button>
+  
+</ion-content>

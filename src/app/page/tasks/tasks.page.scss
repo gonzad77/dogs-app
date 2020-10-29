@@ -1,0 +1,14 @@
+ion-content {
+    form {
+        ion-item {
+            --background: var(--ion-color-light)
+        }
+    }
+    .tasksList {
+        background: var(--ion-color-light);
+        ion-item:last-child {
+            --border-width: 0 0 0 0 !important;
+            --inner-border-width: 0 0 0 0 !important;
+        }
+    }
+}
