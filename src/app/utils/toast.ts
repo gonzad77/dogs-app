@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ToastUtil {
 
     public text = '';
-    private class = 'd-none';
+    public class = 'd-none';
     private timeOuts = [];
     private ms = 3000;
 
