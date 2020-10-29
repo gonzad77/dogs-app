@@ -6,7 +6,7 @@
     <ion-title>Tasks</ion-title>
     <ion-buttons slot="end">
       <ion-button fill="clear" tappable (click)="openPage('/tasks-questions')">
-        <ion-icon name="help"></ion-icon>
+        <ion-icon name="help" color="light"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -49,8 +49,8 @@
   <ion-list class="tasksList">
     <ion-list-header>
       <ion-label><h2>Tasks:</h2></ion-label>
-      <h2 class="ion-padding-top" *ngIf="tasks.length == 0">There aren't tasks yet</h2>
     </ion-list-header>
+    <h3 class="ion-padding-top ion-padding-start" *ngIf="tasks.length == 0">There aren't tasks yet</h3>
     <ion-item *ngFor="let task of tasks" lines="inset" [ngClass]="'task-' + task.IDTask">
       <ion-label>
         <h3>{{task.Description}}</h3>

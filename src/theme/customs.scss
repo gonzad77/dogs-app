@@ -53,6 +53,12 @@ ion-header {
         }
     }
 }
+ion-header.ios {
+    height: 72px !important;
+    ion-toolbar {
+        height: 72px !important;
+    }
+}
 
 ion-button {
     margin-inline-start: 0px;

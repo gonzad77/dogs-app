@@ -17,7 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({backButtonText: ''}),
     AppRoutingModule],
   providers: [
     StatusBar,
